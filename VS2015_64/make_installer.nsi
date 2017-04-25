@@ -6,6 +6,8 @@ ShowUnInstDetails show
 SetCompress auto
 
 Section
+	SetOutPath $INSTDIR\build
+	File /r /x "CMakeLists.txt" "$%APERTUSVR_SOURCE%\build\" 
 	SetOutPath $INSTDIR\common
 	File /r /x "CMakeLists.txt" "$%APERTUSVR_SOURCE%\common\" 
 	SetOutPath $INSTDIR\core
