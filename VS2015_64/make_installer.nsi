@@ -7,17 +7,17 @@ SetCompress auto
 
 Section
 	SetOutPath $INSTDIR\build
-	File /x "CMakeLists.txt" /x "*.cmake" /x "*.sou" /x "*.db" /x "*.sdf" "$%APERTUSVR_SOURCE%\build\" 
+	File /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.cmake" /x "*.sou" /x "*.db" /x "*.sdf" "$%APERTUSVR_SOURCE%\build\" 
 	SetOutPath $INSTDIR\build\common
-	File /r /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\common\" 
+	File /r /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\common\" 
 	SetOutPath $INSTDIR\build\core
-	File /r /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\core\" 
+	File /r /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\core\" 
 	SetOutPath $INSTDIR\build\plugins
-	File /r /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\plugins\" 
+	File /r /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\plugins\" 
 	SetOutPath $INSTDIR\build\samples
-	File /r /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\samples\" 
+	File /r /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\samples\" 
 	SetOutPath $INSTDIR\build\servers
-	File /r /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\servers\" 
+	File /r /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\servers\" 
 	
 	SetOutPath $INSTDIR\common
 	File /r /x "CMakeLists.txt" "$%APERTUSVR_SOURCE%\common\" 
