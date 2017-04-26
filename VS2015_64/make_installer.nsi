@@ -129,6 +129,6 @@ Section
 	SetOutPath $INSTDIR\build
 	File "pathReplacer.bat"
 	File "pathReplacer.ps1"
-	Exec "$INSTDIR\pathReplacer.bat"	
+	Exec "$INSTDIR\build\pathReplacer.bat"	
 	
 SectionEnd
