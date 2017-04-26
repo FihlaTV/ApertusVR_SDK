@@ -100,7 +100,7 @@ Section
 		SetOutPath $INSTDIR\build
 		File /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.cmake" /x "*.sou" /x "*.db" /x "*.sdf" "$%APERTUSVR_SOURCE%\build\" 
 		SetOutPath $INSTDIR\build\bin
-		File /r /x "*.pdb" /x "*.ilk" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\" 
+		File /r /x "Ape*.*" /x "*.pdb" /x "*.ilk" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\" 
 		SetOutPath $INSTDIR\build\common
 		File /r /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\common\" 
 		SetOutPath $INSTDIR\build\core
