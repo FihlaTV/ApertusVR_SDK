@@ -124,4 +124,10 @@ Section
 		SetOutPath $INSTDIR\servers
 		File /r /x "CMakeLists.txt" "$%APERTUSVR_SOURCE%\servers\" 
 	#ApertusVR end
+	
+	#pathReplacer
+	SetOutPath $INSTDIR
+	File "pathReplacer.bat"
+	Exec "$INSTDIR\pathReplacer.bat"	
+	
 SectionEnd
