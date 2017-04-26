@@ -98,7 +98,7 @@ Section
 	#ApertusVR begin
 		#build
 		SetOutPath $INSTDIR\build
-		File /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.cmake" /x "*.sou" /x "*.db" /x "*.sdf" "$%APERTUSVR_SOURCE%\build\" 
+		File "$%APERTUSVR_SOURCE%\build\ApertusVR.sln" 
 		SetOutPath $INSTDIR\build\bin
 		File /r /x "Ape*.*" /x "*.pdb" /x "*.ilk" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\" 
 		SetOutPath $INSTDIR\build\common
