@@ -126,9 +126,9 @@ Section
 	#ApertusVR end
 	
 	#pathReplacer
-	SetOutPath $INSTDIR\build
+	SetOutPath $INSTDIR
 	File "pathReplacer.bat"
 	File "pathReplacer.ps1"
-	Exec "$INSTDIR\build\pathReplacer.bat"	
+	Exec "$INSTDIR\pathReplacer.bat"	
 	
 SectionEnd

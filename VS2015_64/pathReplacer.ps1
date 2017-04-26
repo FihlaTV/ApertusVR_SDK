@@ -15,3 +15,7 @@ function Replace-TextInFile
 Get-ChildItem . *.vcxproj -rec | ForEach-Object { 
     Replace-TextInFile -FilePath $_.FullName -Pattern 'c:\\github\\ApertusVR' -Replacement $pwd 
 }
+
+Get-ChildItem . *.vcxproj -rec | ForEach-Object { 
+    Replace-TextInFile -FilePath $_.FullName -Pattern 'c:/github/ApertusVR' -Replacement $pwd 
+}
