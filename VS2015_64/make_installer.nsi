@@ -81,9 +81,9 @@ Section
 		File "$%APERTUSVR_SOURCE%\3rdParty\nodejs\6.10.0\source\deps\uv\include\" 
 		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.0\source\deps\v8\include
 		File "$%APERTUSVR_SOURCE%\3rdParty\nodejs\6.10.0\source\deps\v8\include\" 
-		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.0\source\Debug\node.lib
+		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.0\source\Debug
 		File "$%APERTUSVR_SOURCE%\3rdParty\nodejs\6.10.0\source\Debug\node.lib" 
-		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.0\source\Release\node.lib
+		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.0\source\Release
 		File "$%APERTUSVR_SOURCE%\3rdParty\nodejs\6.10.0\source\Release\node.lib"
 
 		#nan
