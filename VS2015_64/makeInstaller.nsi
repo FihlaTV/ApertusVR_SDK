@@ -108,7 +108,7 @@ Section
 		SetOutPath $INSTDIR\build
 		File "$%APERTUSVR_SOURCE%\build\ApertusVR.sln" 
 		SetOutPath $INSTDIR\build\bin
-		File /r /x "Ape*.*" /x "*.pdb" /x "*.ilk" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\" 
+		File /r /x "Ape*.dll" /x "Ape*.exe" /x "*.pdb" /x "*.ilk" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\" 
 		SetOutPath $INSTDIR\build\common
 		File /r /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\common\" 
 		SetOutPath $INSTDIR\build\core
@@ -140,5 +140,8 @@ Section
 	Exec "$INSTDIR\stringReplacer@vcxproj.bat"
 	#Delete "$INSTDIR\stringReplacer@vcxproj.bat"
 	#Delete "$INSTDIR\stringReplacer@vcxproj.ps1"
+	
+	#shortcut to ApertusVR.sln
+	CreateShortCut "$DESKTOP\ApertusVR_SDK.lnk" "$INSTDIR\build\ApertusVR.sln" ""
 	
 SectionEnd
