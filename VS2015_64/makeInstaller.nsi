@@ -12,7 +12,7 @@ Section -Directx_Runtimes
   SetOutPath "$TEMP\ApertusVR\directx_Jun2010_redist"
   File /r "..\3rdParty\directx_Jun2010_redist\"
   ${DirectX_Install} "$TEMP\ApertusVR\directx_Jun2010_redist"
-  Sleep 5000
+  Sleep 1000
 SectionEnd
 
 Section
@@ -25,20 +25,26 @@ Section
 		File /r "$%APERTUSVR_SOURCE%\3rdParty\raknet\Lib\LibStatic\" 
 		
 		#curl
-		SetOutPath $INSTDIR\3rdParty\curl\include
-		File "$%APERTUSVR_SOURCE%\3rdParty\curl\include\" 
+		SetOutPath $INSTDIR\3rdParty\curl\include\curl
+		File "$%APERTUSVR_SOURCE%\3rdParty\curl\include\curl\" 
 		SetOutPath $INSTDIR\3rdParty\curl\lib
 		File /r "$%APERTUSVR_SOURCE%\3rdParty\curl\lib\" 
 		
 		#rapidjson
 		SetOutPath $INSTDIR\3rdParty\rapidjson\include\rapidjson
-		File "$%APERTUSVR_SOURCE%\3rdParty\rapidjson\include\rapidjson\" 	
+		File /r "$%APERTUSVR_SOURCE%\3rdParty\rapidjson\include\rapidjson\" 	
 		
 		#ogre
 		SetOutPath $INSTDIR\3rdParty\ogre\include
 		File "$%APERTUSVR_SOURCE%\3rdParty\ogre\include\" 	
 		SetOutPath $INSTDIR\3rdParty\ogre\OgreMain\include
 		File "$%APERTUSVR_SOURCE%\3rdParty\ogre\OgreMain\include\" 
+		SetOutPath $INSTDIR\3rdParty\ogre\OgreMain\include\Threading
+		File "$%APERTUSVR_SOURCE%\3rdParty\ogre\OgreMain\include\Threading\"
+		SetOutPath $INSTDIR\3rdParty\ogre\OgreMain\include\WIN32
+		File "$%APERTUSVR_SOURCE%\3rdParty\ogre\OgreMain\include\WIN32\" 
+		SetOutPath $INSTDIR\3rdParty\ogre\OgreMain\include\Hash
+		File "$%APERTUSVR_SOURCE%\3rdParty\ogre\OgreMain\include\Hash\" 		
 		SetOutPath $INSTDIR\3rdParty\ogre\OgreMain
 		File "$%APERTUSVR_SOURCE%\3rdParty\ogre\OgreMain\" 
 		SetOutPath $INSTDIR\3rdParty\ogre\Components\Overlay\include
@@ -92,7 +98,9 @@ Section
 		
 		#nbind
 		SetOutPath $INSTDIR\3rdParty\nbind\include\nbind
-		File "$%APERTUSVR_SOURCE%\3rdParty\nbind\include\nbind\" 
+		File /r "$%APERTUSVR_SOURCE%\3rdParty\nbind\include\nbind\"
+        SetOutPath $INSTDIR\3rdParty\nbind\src
+		File /r "$%APERTUSVR_SOURCE%\3rdParty\nbind\src\" 		
 	#3rdParties end
 
 	#ApertusVR begin
@@ -125,10 +133,12 @@ Section
 		File /r /x "CMakeLists.txt" "$%APERTUSVR_SOURCE%\servers\" 
 	#ApertusVR end
 	
-	#pathReplacer
+	#stringReplacer@vcxproj
 	SetOutPath $INSTDIR
-	File "pathReplacer.bat"
-	File "pathReplacer.ps1"
-	Exec "$INSTDIR\pathReplacer.bat"	
+	File "stringReplacer@vcxproj.bat"
+	File "stringReplacer@vcxproj.ps1"
+	Exec "$INSTDIR\stringReplacer@vcxproj.bat"
+	#Delete "$INSTDIR\stringReplacer@vcxproj.bat"
+	#Delete "$INSTDIR\stringReplacer@vcxproj.ps1"
 	
 SectionEnd
