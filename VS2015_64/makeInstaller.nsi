@@ -15,6 +15,13 @@ Section -Directx_Runtimes
   Sleep 1000
 SectionEnd
 
+Section -NodeJS_Runtimes
+  SetOutPath "$TEMP\ApertusVR\nodejs\win\x64\node-v6.10.0-x64.msi"
+  File "..\3rdParty\nodejs\win\x64\node-v6.10.0-x64.msi"
+  ExecWait "$TEMP\ApertusVR\nodejs\win\x64\node-v6.10.0-x64.msi"
+  Sleep 1000
+SectionEnd
+
 Section
     
     #3rdParties begin
@@ -107,8 +114,15 @@ Section
 		#build
 		SetOutPath $INSTDIR\build
 		File "$%APERTUSVR_SOURCE%\build\ApertusVR.sln" 
-		SetOutPath $INSTDIR\build\bin
-		File /r /x "Ape*.dll" /x "Ape*.exe" /x "*.pdb" /x "*.ilk" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\" 
+		SetOutPath $INSTDIR\build\bin\debug
+		File /x "Ape*.dll" /x "Ape*.exe" /x "*.pdb" /x "*.ilk" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\debug\"
+		SetOutPath $INSTDIR\build\bin\release
+		File /x "Ape*.dll" /x "Ape*.exe" /x "*.pdb" /x "*.ilk" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\release\" 
+		SetOutPath $INSTDIR\build\bin\debug\node_modules\apertusvr\js
+		File /r /x "apeServer.js" /x "package.json" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\debug\node_modules\apertusvr\js\"
+		SetOutPath $INSTDIR\build\bin\release\node_modules\apertusvr\js
+		File /r /x "package.json" /x "apeServer.js" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\release\node_modules\apertusvr\js\" 
+		
 		SetOutPath $INSTDIR\build\common
 		File /r /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\common\" 
 		SetOutPath $INSTDIR\build\core
@@ -137,9 +151,17 @@ Section
 	SetOutPath $INSTDIR
 	File "stringReplacer@vcxproj.bat"
 	File "stringReplacer@vcxproj.ps1"
+	SetOutPath $INSTDIR\build\release
+	File "npm_install.bat"
+	SetOutPath $INSTDIR\build\debug
+	File "npm_install.bat"
 	ExecWait "$INSTDIR\stringReplacer@vcxproj.bat"
+	ExecWait "$INSTDIR\build\release\npm_install.bat"
+	ExecWait "$INSTDIR\build\debug\npm_install.bat"
 	Delete "$INSTDIR\stringReplacer@vcxproj.bat"
 	Delete "$INSTDIR\stringReplacer@vcxproj.ps1"
+	Delete "$INSTDIR\build\debug\npm_install.bat"
+	Delete "$INSTDIR\build\release\npm_install.bat"
 	
 	#shortcut to ApertusVR.sln
 	CreateDirectory "$DESKTOP\ApertusVR"
