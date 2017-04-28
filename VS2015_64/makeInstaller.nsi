@@ -137,11 +137,11 @@ Section
 	SetOutPath $INSTDIR
 	File "stringReplacer@vcxproj.bat"
 	File "stringReplacer@vcxproj.ps1"
-	Exec "$INSTDIR\stringReplacer@vcxproj.bat"
-	#Delete "$INSTDIR\stringReplacer@vcxproj.bat"
-	#Delete "$INSTDIR\stringReplacer@vcxproj.ps1"
+	ExecWait "$INSTDIR\stringReplacer@vcxproj.bat"
+	Delete "$INSTDIR\stringReplacer@vcxproj.bat"
+	Delete "$INSTDIR\stringReplacer@vcxproj.ps1"
 	
 	#shortcut to ApertusVR.sln
-	CreateShortCut "$DESKTOP\ApertusVR_SDK.lnk" "$INSTDIR\build\ApertusVR.sln" ""
+	CreateShortCut "$DESKTOP\ApertusVR\SDK.lnk" "$INSTDIR\build\ApertusVR.sln" ""
 	
 SectionEnd
