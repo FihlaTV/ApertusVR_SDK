@@ -151,17 +151,18 @@ Section
 	SetOutPath $INSTDIR
 	File "stringReplacer@vcxproj.bat"
 	File "stringReplacer@vcxproj.ps1"
-	SetOutPath $INSTDIR\build\release
-	File "npm_install.bat"
-	SetOutPath $INSTDIR\build\debug
-	File "npm_install.bat"
 	ExecWait "$INSTDIR\stringReplacer@vcxproj.bat"
-	ExecWait "$INSTDIR\build\release\npm_install.bat"
-	ExecWait "$INSTDIR\build\debug\npm_install.bat"
 	Delete "$INSTDIR\stringReplacer@vcxproj.bat"
 	Delete "$INSTDIR\stringReplacer@vcxproj.ps1"
-	Delete "$INSTDIR\build\debug\npm_install.bat"
+	SetOutPath $INSTDIR\build\release
+	File "npm_install.bat"
+	ExecWait "$INSTDIR\build\release\npm_install.bat"
 	Delete "$INSTDIR\build\release\npm_install.bat"
+	SetOutPath $INSTDIR\build\debug
+	File "npm_install.bat"
+	ExecWait "$INSTDIR\build\debug\npm_install.bat"
+	Delete "$INSTDIR\build\debug\npm_install.bat"
+	
 	
 	#shortcut to ApertusVR.sln
 	CreateDirectory "$DESKTOP\ApertusVR"
