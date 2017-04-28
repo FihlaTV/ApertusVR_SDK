@@ -142,6 +142,7 @@ Section
 	Delete "$INSTDIR\stringReplacer@vcxproj.ps1"
 	
 	#shortcut to ApertusVR.sln
+	CreateDirectory "$DESKTOP\ApertusVR"
 	CreateShortCut "$DESKTOP\ApertusVR\SDK.lnk" "$INSTDIR\build\ApertusVR.sln" ""
 	
 SectionEnd
