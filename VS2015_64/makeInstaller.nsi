@@ -136,9 +136,9 @@ Section
 		File "$%APERTUSVR_SOURCE%\build\bin\debug\node_modules\apertusvr\logs\"
 		SetOutPath $INSTDIR\build\bin\release\node_modules\apertusvr\logs
 		File "$%APERTUSVR_SOURCE%\build\bin\release\node_modules\apertusvr\logs\" 
-		SetOutPath $INSTDIR\build\bin\debug\node_modules\apertusvr\package.json
+		SetOutPath $INSTDIR\build\bin\debug\node_modules\apertusvr\
 		File "$%APERTUSVR_SOURCE%\build\bin\debug\node_modules\apertusvr\package.json"
-		SetOutPath $INSTDIR\build\bin\release\node_modules\apertusvr\package.json
+		SetOutPath $INSTDIR\build\bin\release\node_modules\apertusvr\
 		File "$%APERTUSVR_SOURCE%\build\bin\release\node_modules\apertusvr\package.json" 
 		
 		SetOutPath $INSTDIR\build\common
