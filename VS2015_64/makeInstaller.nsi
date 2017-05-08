@@ -1,6 +1,7 @@
 !include "DirectSetup.nsh"
 
 OutFile "ApertusVR_SDK_VS2015_64.exe"
+RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES\ApertusVR\0.1\SDK"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
@@ -131,10 +132,14 @@ Section
 		File /x "Ape*.dll" /x "Ape*.exe" /x "*.pdb" /x "*.ilk" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\debug\"
 		SetOutPath $INSTDIR\build\bin\release
 		File /x "Ape*.dll" /x "Ape*.exe" /x "*.pdb" /x "*.ilk" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\release\" 
-		SetOutPath $INSTDIR\build\bin\debug\node_modules\apertusvr\js
-		File /r /x "apeServer.js" /x "package.json" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\debug\node_modules\apertusvr\js\"
-		SetOutPath $INSTDIR\build\bin\release\node_modules\apertusvr\js
-		File /r /x "package.json" /x "apeServer.js" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\release\node_modules\apertusvr\js\" 
+		SetOutPath $INSTDIR\build\bin\debug\node_modules\apertusvr\logs
+		File "$%APERTUSVR_SOURCE%\build\bin\debug\node_modules\apertusvr\logs\"
+		SetOutPath $INSTDIR\build\bin\release\node_modules\apertusvr\logs
+		File "$%APERTUSVR_SOURCE%\build\bin\release\node_modules\apertusvr\logs\" 
+		SetOutPath $INSTDIR\build\bin\debug\node_modules\apertusvr\package.json
+		File "$%APERTUSVR_SOURCE%\build\bin\debug\node_modules\apertusvr\package.json"
+		SetOutPath $INSTDIR\build\bin\release\node_modules\apertusvr\package.json
+		File "$%APERTUSVR_SOURCE%\build\bin\release\node_modules\apertusvr\package.json" 
 		
 		SetOutPath $INSTDIR\build\common
 		File /r /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\common\" 
