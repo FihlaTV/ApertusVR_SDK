@@ -1,1 +1,1 @@
-npm install
+Powershell.exe -executionpolicy remotesigned -File npm_install.ps1

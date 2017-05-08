@@ -2,6 +2,15 @@
 
 OutFile "ApertusVR_SDK_VS2015_64.exe"
 RequestExecutionLevel admin
+# default section start
+Section
+    UserInfo::getAccountType
+    Pop $0
+    StrCmp $0 "Admin" +3
+    MessageBox MB_OK "not admin: $0"
+    Return
+    MessageBox MB_OK "is admin"
+SectionEnd
 InstallDir "$PROGRAMFILES\ApertusVR\0.1\SDK"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
@@ -174,12 +183,16 @@ Section
 	Delete "$INSTDIR\stringReplacer@vcxproj.ps1"
 	SetOutPath $INSTDIR\build\release
 	File "npm_install.bat"
+	File "npm_install.ps1"
 	ExecWait "$INSTDIR\build\release\npm_install.bat"
 	Delete "$INSTDIR\build\release\npm_install.bat"
+	Delete "$INSTDIR\build\debug\npm_install.ps1"
 	SetOutPath $INSTDIR\build\debug
 	File "npm_install.bat"
+	File "npm_install.ps1"
 	ExecWait "$INSTDIR\build\debug\npm_install.bat"
 	Delete "$INSTDIR\build\debug\npm_install.bat"
+	Delete "$INSTDIR\build\debug\npm_install.ps1"
 	
 	
 	#shortcut to ApertusVR.sln
