@@ -16,9 +16,16 @@ Section -Directx_Runtimes
 SectionEnd
 
 Section -NodeJS_Runtimes
-  SetOutPath "$TEMP\ApertusVR\nodejs\win\x64\node-v6.10.0-x64.msi"
-  File "..\3rdParty\nodejs\win\x64\node-v6.10.0-x64.msi"
-  ExecWait "$TEMP\ApertusVR\nodejs\win\x64\node-v6.10.0-x64.msi"
+  SetOutPath "$TEMP\ApertusVR\nodejs\win\x64\node-v6.10.2-x64.msi"
+  File "..\3rdParty\nodejs\win\x64\node-v6.10.2-x64.msi"
+  ExecWait "$TEMP\ApertusVR\nodejs\win\x64\node-v6.10.2-x64.msi"
+  Sleep 1000
+SectionEnd
+
+Section -OculusDK2_Runtimes
+  SetOutPath "$TEMP\ApertusVR\oculusDK2\oculus_runtime_rev_1_sdk_0.4.4_win.exe"
+  File "..\3rdParty\oculusDK2\oculus_runtime_rev_1_sdk_0.4.4_win.exe"
+  ExecWait "$TEMP\ApertusVR\oculusDK2\oculus_runtime_rev_1_sdk_0.4.4_win.exe"
   Sleep 1000
 SectionEnd
 
@@ -88,16 +95,16 @@ Section
 		File /r "$%APERTUSVR_SOURCE%\3rdParty\ois\Release\" 
 		
 		#nodejs
-		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.0\source\src
-		File "$%APERTUSVR_SOURCE%\3rdParty\nodejs\6.10.0\source\src\" 
-		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.0\source\deps\uv\include
-		File "$%APERTUSVR_SOURCE%\3rdParty\nodejs\6.10.0\source\deps\uv\include\" 
-		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.0\source\deps\v8\include
-		File "$%APERTUSVR_SOURCE%\3rdParty\nodejs\6.10.0\source\deps\v8\include\" 
-		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.0\source\Debug
-		File "$%APERTUSVR_SOURCE%\3rdParty\nodejs\6.10.0\source\Debug\node.lib" 
-		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.0\source\Release
-		File "$%APERTUSVR_SOURCE%\3rdParty\nodejs\6.10.0\source\Release\node.lib"
+		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.2\source\src
+		File "$%APERTUSVR_SOURCE%\3rdParty\nodejs\6.10.2\source\src\" 
+		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.2\source\deps\uv\include
+		File "$%APERTUSVR_SOURCE%\3rdParty\nodejs\6.10.2\source\deps\uv\include\" 
+		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.2\source\deps\v8\include
+		File "$%APERTUSVR_SOURCE%\3rdParty\nodejs\6.10.2\source\deps\v8\include\" 
+		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.2\source\Debug
+		File "$%APERTUSVR_SOURCE%\3rdParty\nodejs\6.10.2\source\Debug\node.lib" 
+		SetOutPath $INSTDIR\3rdParty\nodejs\6.10.2\source\Release
+		File "$%APERTUSVR_SOURCE%\3rdParty\nodejs\6.10.2\source\Release\node.lib"
 
 		#nan
 		SetOutPath $INSTDIR\3rdParty\nan
@@ -107,7 +114,13 @@ Section
 		SetOutPath $INSTDIR\3rdParty\nbind\include\nbind
 		File /r "$%APERTUSVR_SOURCE%\3rdParty\nbind\include\nbind\"
         SetOutPath $INSTDIR\3rdParty\nbind\src
-		File /r "$%APERTUSVR_SOURCE%\3rdParty\nbind\src\" 		
+		File /r "$%APERTUSVR_SOURCE%\3rdParty\nbind\src\" 	
+
+		#oculusDK2
+		SetOutPath $INSTDIR\3rdParty\oculus\LibOVR
+		File /r "$%APERTUSVR_SOURCE%\3rdParty\oculus\LibOVR\"
+	SetOutPath $INSTDIR\3rdParty\oculus\3rdParty
+		File /r "$%APERTUSVR_SOURCE%\3rdParty\oculus\3rdParty\"			
 	#3rdParties end
 
 	#ApertusVR begin
