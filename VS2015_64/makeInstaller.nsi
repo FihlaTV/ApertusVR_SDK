@@ -2,15 +2,6 @@
 
 OutFile "ApertusVR_SDK_VS2015_64.exe"
 RequestExecutionLevel admin
-# default section start
-Section
-    UserInfo::getAccountType
-    Pop $0
-    StrCmp $0 "Admin" +3
-    MessageBox MB_OK "not admin: $0"
-    Return
-    MessageBox MB_OK "is admin"
-SectionEnd
 InstallDir "$PROGRAMFILES\ApertusVR\0.1\SDK"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
