@@ -1,4 +1,5 @@
-!include "DirectSetup.nsh"
+!include 'DirectSetup.nsh'
+!include 'StdUtils.nsh'
 
 OutFile "ApertusVR_SDK_VS2015_64.exe"
 RequestExecutionLevel admin
@@ -120,7 +121,7 @@ Section
 		#oculusDK2
 		SetOutPath $INSTDIR\3rdParty\oculus\LibOVR
 		File /r "$%APERTUSVR_SOURCE%\3rdParty\oculus\LibOVR\"
-	SetOutPath $INSTDIR\3rdParty\oculus\3rdParty
+	    SetOutPath $INSTDIR\3rdParty\oculus\3rdParty
 		File /r "$%APERTUSVR_SOURCE%\3rdParty\oculus\3rdParty\"			
 	#3rdParties end
 
@@ -129,17 +130,13 @@ Section
 		SetOutPath $INSTDIR\build
 		File "$%APERTUSVR_SOURCE%\build\ApertusVR.sln" 
 		SetOutPath $INSTDIR\build\bin\debug
-		File /x "Ape*.dll" /x "Ape*.exe" /x "*.pdb" /x "*.ilk" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\debug\"
+		File /x "Ape*.dll" /x "Ape*.exe" /x "*.pdb" /x "*.ilk" "$%APERTUSVR_SOURCE%\build\bin\debug\"
 		SetOutPath $INSTDIR\build\bin\release
-		File /x "Ape*.dll" /x "Ape*.exe" /x "*.pdb" /x "*.ilk" /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\release\" 
-		SetOutPath $INSTDIR\build\bin\debug\node_modules\apertusvr\logs
-		File "$%APERTUSVR_SOURCE%\build\bin\debug\node_modules\apertusvr\logs\"
-		SetOutPath $INSTDIR\build\bin\release\node_modules\apertusvr\logs
-		File "$%APERTUSVR_SOURCE%\build\bin\release\node_modules\apertusvr\logs\" 
-		SetOutPath $INSTDIR\build\bin\debug\node_modules\apertusvr\
-		File "$%APERTUSVR_SOURCE%\build\bin\debug\node_modules\apertusvr\package.json"
-		SetOutPath $INSTDIR\build\bin\release\node_modules\apertusvr\
-		File "$%APERTUSVR_SOURCE%\build\bin\release\node_modules\apertusvr\package.json" 
+		File /x "Ape*.dll" /x "Ape*.exe" /x "*.pdb" /x "*.ilk" "$%APERTUSVR_SOURCE%\build\bin\release\" 
+		SetOutPath $INSTDIR\build\bin\release\node_modules
+		File /r /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\release\node_modules\" 
+		SetOutPath $INSTDIR\build\bin\debug\node_modules
+		File /r /x "SuperChargerLinkage.x3d" "$%APERTUSVR_SOURCE%\build\bin\debug\node_modules\"
 		
 		SetOutPath $INSTDIR\build\common
 		File /r /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\common\" 
@@ -172,20 +169,8 @@ Section
 	ExecWait "$INSTDIR\stringReplacer@vcxproj.bat"
 	Delete "$INSTDIR\stringReplacer@vcxproj.bat"
 	Delete "$INSTDIR\stringReplacer@vcxproj.ps1"
-	SetOutPath $INSTDIR\build\release
-	File "npm_install.bat"
-	File "npm_install.ps1"
-	ExecWait "$INSTDIR\build\release\npm_install.bat"
-	Delete "$INSTDIR\build\release\npm_install.bat"
-	Delete "$INSTDIR\build\debug\npm_install.ps1"
-	SetOutPath $INSTDIR\build\debug
-	File "npm_install.bat"
-	File "npm_install.ps1"
-	ExecWait "$INSTDIR\build\debug\npm_install.bat"
-	Delete "$INSTDIR\build\debug\npm_install.bat"
-	Delete "$INSTDIR\build\debug\npm_install.ps1"
 	
-	
+		
 	#shortcut to ApertusVR.sln
 	CreateDirectory "$DESKTOP\ApertusVR"
 	CreateShortCut "$DESKTOP\ApertusVR\SDK.lnk" "$INSTDIR\build\ApertusVR.sln" ""
