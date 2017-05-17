@@ -143,7 +143,7 @@ Section
 		SetOutPath $INSTDIR\build\core
 		File /r /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\core\" 
 		SetOutPath $INSTDIR\build\plugins
-		File /r /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\plugins\" 
+		File /r /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" /x "npmTargetDebug.*" /x "npmTargetRelease.*" "$%APERTUSVR_SOURCE%\build\plugins\" 
 		SetOutPath $INSTDIR\build\samples
 		File /r /x "CMakeCache.txt" /x "CMakeLists.txt" /x "*.log" /x "*.cmake" /x "CMakeFiles" "$%APERTUSVR_SOURCE%\build\samples\" 
 		SetOutPath $INSTDIR\build\servers
