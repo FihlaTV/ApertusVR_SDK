@@ -20,6 +20,14 @@ Get-ChildItem . *.vcxproj -rec | ForEach-Object {
     Replace-TextInFile -FilePath $_.FullName -Pattern 'c:/github/ApertusVR' -Replacement $pwd.Path.replace( '\', '/') 
 }
 
+Get-ChildItem . config.json -rec | ForEach-Object { 
+    Replace-TextInFile -FilePath $_.FullName -Pattern 'c:/github/ApertusVR' -Replacement $pwd.Path.replace( '\', '/') 
+}
+
+Get-ChildItem . paths.json -rec | ForEach-Object { 
+    Replace-TextInFile -FilePath $_.FullName -Pattern 'c:/github/ApertusVR' -Replacement $pwd.Path.replace( '\', '/') 
+}
+
 Get-ChildItem . *.vcxproj -rec | ForEach-Object { 
     Replace-TextInFile -FilePath $_.FullName -Pattern '<Message' -Replacement '<!--<Message' 
 }
