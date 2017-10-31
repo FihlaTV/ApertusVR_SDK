@@ -7,9 +7,16 @@ ShowUnInstDetails show
 SetCompress auto
 
 Section -OculusDK2_Runtimes
-  SetOutPath "$TEMP\ApertusVR\oculusDK2\oculus_runtime_rev_1_sdk_0.4.4_win.exe"
+  SetOutPath "$TEMP\ApeTexasEEG\oculusDK2\oculus_runtime_rev_1_sdk_0.4.4_win.exe"
   File "..\3rdParty\oculusDK2\oculus_runtime_rev_1_sdk_0.4.4_win.exe"
-  ExecWait "$TEMP\ApertusVR\oculusDK2\oculus_runtime_rev_1_sdk_0.4.4_win.exe"
+  ExecWait "$TEMP\ApeTexasEEG\oculusDK2\oculus_runtime_rev_1_sdk_0.4.4_win.exe"
+  Sleep 1000
+SectionEnd
+
+Section -VisualStudio201764bit_Runtimes
+  SetOutPath "$TEMP\ApeTexasEEG\VC_redist.x64.exe"
+  File "..\3rdParty\VC_redist.x64.exe"
+  ExecWait "$TEMP\ApeTexasEEG\VC_redist.x64.exe"
   Sleep 1000
 SectionEnd
 
