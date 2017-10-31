@@ -1,6 +1,6 @@
 OutFile "ApeTexasEEG.exe"
 RequestExecutionLevel admin
-InstallDir "c:/ApertusVR"
+InstallDir "c:\ApertusVR"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
 ShowUnInstDetails show
@@ -23,54 +23,61 @@ SectionEnd
 Section
 	#ApeTexasEEG begin
 		#build
-		SetOutPath $INSTDIR\build\bin\release\ApeTexasEEG.exe
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\ApeTexasEEG.exe"
-		SetOutPath $INSTDIR\build\bin\release\ApeEventManager.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\ApeEventManager.dll"
-		SetOutPath $INSTDIR\build\bin\release\ApeMainWindow.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\ApeMainWindow.dll"
-		SetOutPath $INSTDIR\build\bin\release\ApeOculusDK2Plugin.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\ApeOculusDK2Plugin.dll"
-		SetOutPath $INSTDIR\build\bin\release\ApeOgreRenderPlugin.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\ApeOgreRenderPlugin.dll"
-		SetOutPath $INSTDIR\build\bin\release\ApePluginManager.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\ApePluginManager.dll"
-		SetOutPath $INSTDIR\build\bin\release\ApeScene.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\ApeScene.dll"
-		SetOutPath $INSTDIR\build\bin\release\ApeSkyWaterTerrainScenePlugin.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\ApeSkyWaterTerrainScenePlugin.dll"
-		SetOutPath $INSTDIR\build\bin\release\ApeSystem.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\ApeSystem.dll"
-		SetOutPath $INSTDIR\build\bin\release\ApeSystemConfig.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\ApeSystemConfig.dll"
-		SetOutPath $INSTDIR\build\bin\release\ApeTexasEEGPlugin.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\ApeTexasEEGPlugin.dll"
-		SetOutPath $INSTDIR\build\bin\release\Hydrax.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\Hydrax.dll"
-		SetOutPath $INSTDIR\build\bin\release\OgreHLMS.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\OgreHLMS.dll"
-		SetOutPath $INSTDIR\build\bin\release\OgreMain.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\OgreMain.dll"
-		SetOutPath $INSTDIR\build\bin\release\OgreMeshLodGenerator.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\OgreMeshLodGenerator.dll"
-		SetOutPath $INSTDIR\build\bin\release\OgreOverlay.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\OgreOverlay.dll"
-		SetOutPath $INSTDIR\build\bin\release\OgreProcedural.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\OgreProcedural.dll"
-		SetOutPath $INSTDIR\build\bin\release\OgreRTShaderSystem.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\OgreRTShaderSystem.dll"
-		SetOutPath $INSTDIR\build\bin\release\Plugin_CgProgramManager.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\Plugin_CgProgramManager.dll"
-		SetOutPath $INSTDIR\build\bin\release\RenderSystem_Direct3D11.dll
+		SetOutPath $INSTDIR\build\bin\release
+		File "$%APERTUSVR_SOURCE%\build\bin\release\cg.dll"
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\RenderSystem_Direct3D11.dll"
-		SetOutPath $INSTDIR\build\bin\release\RenderSystem_Direct3D9.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\RenderSystem_Direct3D9.dll"
-		SetOutPath $INSTDIR\build\bin\release\RenderSystem_GL.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\RenderSystem_GL.dll"
-		SetOutPath $INSTDIR\build\bin\release\Skyx.dll
+		SetOutPath $INSTDIR\build\bin\release
 		File "$%APERTUSVR_SOURCE%\build\bin\release\Skyx.dll"
+		
 		SetOutPath $INSTDIR\samples\texasEEG\configs
-		File /r /x "CMakeLists.txt" "$%APERTUSVR_SOURCE%\samples\texasEEG\configs" 
+		File /r /x "CMakeLists.txt" "$%APERTUSVR_SOURCE%\samples\texasEEG\configs\"
+		SetOutPath $INSTDIR\plugins\ogreRender\media
+		File /r "$%APERTUSVR_SOURCE%\plugins\ogreRender\media\" 
+		SetOutPath $INSTDIR\plugins\oculusDK2\resources
+		File /r "$%APERTUSVR_SOURCE%\plugins\oculusDK2\resources\" 		
 	#ApeTexasEEG end
 		
 	#shortcut to ApeTexasEEG.exe
