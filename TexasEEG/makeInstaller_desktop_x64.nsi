@@ -1,17 +1,10 @@
-OutFile "ApeTexasEEG.exe"
+OutFile "ApeTexasEEG_desktop_x64.exe"
 RequestExecutionLevel admin
 InstallDir "c:\ApertusVR"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
 ShowUnInstDetails show
 SetCompress auto
-
-Section -OculusDK2_Runtimes
-  SetOutPath "$TEMP\ApeTexasEEG\oculusDK2\oculus_runtime_rev_1_sdk_0.4.4_win.exe"
-  File "..\3rdParty\oculusDK2\oculus_runtime_rev_1_sdk_0.4.4_win.exe"
-  ExecWait "$TEMP\ApeTexasEEG\oculusDK2\oculus_runtime_rev_1_sdk_0.4.4_win.exe"
-  Sleep 1000
-SectionEnd
 
 Section -VisualStudio201764bit_Runtimes
   SetOutPath "$TEMP\ApeTexasEEG\VC_redist.x64.exe"
